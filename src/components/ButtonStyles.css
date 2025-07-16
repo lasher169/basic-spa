@@ -1,0 +1,23 @@
+.button/* src/components/Button/ButtonStyles.css */
+.custom-button {
+  background-color: #6200ea;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.custom-button:hover {
+  background-color: #3700b3;
+}
+
+/* Primary Button */
+.primary-button {
+  background-color: #3700b3; /* Override the base color if needed */
+}
+
+.primary-button:hover {
+  background-color: #6200ea; /* Override the hover effect if needed */
+}
