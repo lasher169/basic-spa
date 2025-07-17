@@ -1,8 +1,13 @@
 import React from "react";
+import './Container.css';
 
-const Container = () => {
+const Container = ({children, styling}) => {
     return (
-        <main>            
+        <main className={styling}>          
+            {React.Children.map(children, child => {
+                return React.cloneElement(child, {style: { marginBottom: '1rem'}});
+            })
+            }  
         </main>
     )
 }

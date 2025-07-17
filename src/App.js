@@ -1,10 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
 import './components/Button'
-import Navigation from './components/Navigation';
-import Button from './components/Button';
 import './components/Navigation.css'
-import Container from './components/Container'
+
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import FirstNamePage from './pages/FirstNamePage';
+import LastNamePage from './pages/LastNamePage';
+import DOBPage from './pages/DOBPage';
+
 
 function App() {
   
@@ -18,15 +20,19 @@ function App() {
   console.log(navItemsList.length);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navigation styling="nav-container" navItemsList={navItemsList}/>     
-      </header>
-      
-      <Container/>
-      
-    </div>
+    <Router>
+      <Routes>        
+        <Route path="/" element={<FirstNamePage />} />
+        <Route path="/lastname" element={<LastNamePage />} />
+        <Route path="/date-of-birth" element={<DOBPage />} />
+        <Route path="*" element={<NotFoundPage />} /> {/* This will catch all unmatched paths */}
+      </Routes>
+    </Router>
   );
+}
+
+function NotFoundPage() {
+  return <Navigate to="/"/>
 }
 
 export default App;

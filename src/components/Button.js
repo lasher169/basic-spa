@@ -1,13 +1,14 @@
 import React from 'react';
 import './ButtonStyles.css'; // Importing the CSS for styling
 
-const onClick = (() => {
-    console.log("clicked");
-})
 
-const Button = ({ label }) => {
+const redirect = ((nextUrl) => {
+    window.location.href = nextUrl;
+});
+
+const Button = ({ label, styling, nextUrl }) => {
   return (
-    <button className="custom-button" onClick={onClick}>
+    <button className={styling} onClick={() => redirect(nextUrl)}>
       {label}
     </button>
   );
